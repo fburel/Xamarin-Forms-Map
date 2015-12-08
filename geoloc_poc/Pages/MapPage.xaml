@@ -2,11 +2,28 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="geoloc_poc.MapPage" xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps">
 
 	<ContentPage.Content>
-		<maps:Map 
-            x:Name="MyMap"
-            IsShowingUser="true"
-            MapType="Hybrid"
-        />
+
+		<StackLayout VerticalOptions="FillAndExpand">
+
+		<Entry Placeholder="Enter an address" Text="{Binding AddressText}" x:Name="AddressEntry"/>
+
+
+		<Grid VerticalOptions="FillAndExpand">
+
+
+		      <ListView x:Name="SuggestionList">
+			    <ListView.ItemTemplate>
+			      <DataTemplate>
+			        <TextCell Text="{Binding DisplayedName}" />
+			      </DataTemplate>
+			    </ListView.ItemTemplate>
+			  </ListView>
+
+		    <maps:Map x:Name="MyMap" IsShowingUser="true"  MapType="Hybrid" />
+
+		</Grid>
+
+        </StackLayout>
 	</ContentPage.Content>
 
 	<ContentPage.ToolbarItems>

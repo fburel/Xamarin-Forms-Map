@@ -8,9 +8,12 @@ using Xamarin.Forms.Maps;
 
 namespace geoloc_poc
 {
+
+
+
 	public partial class MapPage : ContentPage
 	{
-		MapViewModel ViewModel = new MapViewModel();
+		IMapViewModel ViewModel = new MapViewModel();
 
 		MapHelper helper = new MapHelper();
 
@@ -53,6 +56,18 @@ namespace geoloc_poc
 				}
 			};
 
+			AddressEntry.Focused += (object sender, FocusEventArgs e) => {
+
+				MyMap.IsVisible = false;
+
+			};
+
+			AddressEntry.Unfocused += (object sender, FocusEventArgs e) => {
+
+				MyMap.IsVisible = true;
+			};
+				
+			SuggestionList.ItemsSource = ViewModel.Suggestions;
 
 		}
 	}
