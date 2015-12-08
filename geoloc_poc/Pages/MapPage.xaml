@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="geoloc_poc.MapPage" xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps">
+
+	<ContentPage.Content>
+		<maps:Map 
+            x:Name="MyMap"
+            IsShowingUser="true"
+            MapType="Hybrid"
+        />
+	</ContentPage.Content>
+
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Name="FindMe" Order="Primary" Priority="0" Command = "{Binding TryLocatingUser}" />
+		<ToolbarItem Name="POIs" Order="Primary" Priority="1"  Command = "{Binding FindNearby}"/>
+	</ContentPage.ToolbarItems>
+
+</ContentPage>
